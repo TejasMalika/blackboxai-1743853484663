@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore | Shoolini Cupid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center sticky top-0 z-10">
+        <h1 class="text-xl font-bold text-pink-500">Explore</h1>
+        <div class="flex items-center space-x-4">
+            <button class="text-gray-500">
+                <i class="fas fa-sliders-h"></i>
+            </button>
+            <button class="text-gray-500">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="bg-white px-6 py-3 flex overflow-x-auto space-x-4 hide-scrollbar">
+        <button class="whitespace-nowrap px-4 py-1 bg-pink-500 text-white rounded-full text-sm">
+            Everyone
+        </button>
+        <button class="whitespace-nowrap px-4 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+            Nearby
+        </button>
+        <button class="whitespace-nowrap px-4 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+            New
+        </button>
+        <button class="whitespace-nowrap px-4 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+            Popular
+        </button>
+        <button class="whitespace-nowrap px-4 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+            Photographers
+        </button>
+    </div>
+
+    <!-- Profile Grid -->
+    <main class="p-4 grid grid-cols-2 gap-4">
+        <!-- Profile Card 1 -->
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="h-48 bg-gray-200 relative overflow-hidden">
+                <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                     alt="Profile" 
+                     class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-white bg-opacity-80 backdrop-blur-sm rounded-full px-2 py-1 flex items-center">
+                    <i class="fas fa-map-marker-alt text-pink-500 text-xs mr-1"></i>
+                    <span class="text-xs font-medium">1 km</span>
+                </div>
+            </div>
+            <div class="p-3">
+                <h3 class="font-bold">Priya, 22</h3>
+                <p class="text-sm text-gray-600">Computer Science</p>
+                <div class="mt-2 flex flex-wrap gap-1">
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Photography</span>
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Music</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Card 2 -->
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="h-48 bg-gray-200 relative overflow-hidden">
+                <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                     alt="Profile" 
+                     class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-white bg-opacity-80 backdrop-blur-sm rounded-full px-2 py-1 flex items-center">
+                    <i class="fas fa-map-marker-alt text-pink-500 text-xs mr-1"></i>
+                    <span class="text-xs font-medium">3 km</span>
+                </div>
+            </div>
+            <div class="p-3">
+                <h3 class="font-bold">Rahul, 24</h3>
+                <p class="text-sm text-gray-600">Business</p>
+                <div class="mt-2 flex flex-wrap gap-1">
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Travel</span>
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Food</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Card 3 -->
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="h-48 bg-gray-200 relative overflow-hidden">
+                <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                     alt="Profile" 
+                     class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-white bg-opacity-80 backdrop-blur-sm rounded-full px-2 py-1 flex items-center">
+                    <i class="fas fa-map-marker-alt text-pink-500 text-xs mr-1"></i>
+                    <span class="text-xs font-medium">5 km</span>
+                </div>
+            </div>
+            <div class="p-3">
+                <h3 class="font-bold">Ananya, 21</h3>
+                <p class="text-sm text-gray-600">Biology</p>
+                <div class="mt-2 flex flex-wrap gap-1">
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Art</span>
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Reading</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Card 4 -->
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+            <div class="h-48 bg-gray-200 relative overflow-hidden">
+                <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                     alt="Profile" 
+                     class="w-full h-full object-cover">
+                <div class="absolute bottom-2 left-2 bg-white bg-opacity-80 backdrop-blur-sm rounded-full px-2 py-1 flex items-center">
+                    <i class="fas fa-map-marker-alt text-pink-500 text-xs mr-1"></i>
+                    <span class="text-xs font-medium">2 km</span>
+                </div>
+            </div>
+            <div class="p-3">
+                <h3 class="font-bold">Vikram, 23</h3>
+                <p class="text-sm text-gray-600">Engineering</p>
+                <div class="mt-2 flex flex-wrap gap-1">
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Sports</span>
+                    <span class="bg-gray-100 text-gray-800 px-2 py-0.5 rounded-full text-xs">Movies</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-3 max-w-md mx-auto">
+        <a href="swipe.html" class="text-gray-500">
+            <i class="fas fa-fire text-xl"></i>
+        </a>
+        <a href="explore.html" class="text-pink-500">
+            <i class="fas fa-compass text-xl"></i>
+        </a>
+        <a href="chat.html" class="text-gray-500">
+            <i class="fas fa-comment-dots text-xl"></i>
+        </a>
+        <a href="settings.html" class="text-gray-500">
+            <i class="fas fa-user text-xl"></i>
+        </a>
+    </nav>
+
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body>
+</html>
