@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoolini Cupid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .splash {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-500 to-purple-600 h-screen flex flex-col items-center justify-center">
+    <div class="splash text-center">
+        <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-white flex items-center justify-center shadow-xl">
+            <i class="fas fa-heart text-5xl text-pink-500"></i>
+        </div>
+        <h1 class="text-4xl font-bold text-white mb-2">Shoolini Cupid</h1>
+        <p class="text-white opacity-80">Connecting Shoolini Hearts</p>
+    </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 3000);
+    </script>
+</body>
+</html>
