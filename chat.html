@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat | Shoolini Cupid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .message-in {
+            background-color: #f3f4f6;
+            border-radius: 18px 18px 18px 4px;
+        }
+        .message-out {
+            background-color: #ec4899;
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+        }
+        .typing-indicator span {
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Chat Header -->
+    <header class="bg-white shadow-sm py-4 px-6 flex items-center sticky top-0 z-10">
+        <a href="swipe.html" class="text-gray-500 mr-4">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden mr-3">
+            <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                 alt="Profile" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1">
+            <h2 class="font-bold">Priya</h2>
+            <div class="text-xs text-gray-500 flex items-center">
+                <div class="typing-indicator flex space-x-1 hidden">
+                    <span class="w-2 h-2 bg-pink-500 rounded-full"></span>
+                    <span class="w-2 h-2 bg-pink-500 rounded-full"></span>
+                    <span class="w-2 h-2 bg-pink-500 rounded-full"></span>
+                </div>
+                <span id="statusText">Online</span>
+            </div>
+        </div>
+        <button class="text-gray-500">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </header>
+
+    <!-- Chat Messages -->
+    <main class="pb-24 px-4 space-y-3" id="chatMessages">
+        <!-- Date Divider -->
+        <div class="text-center text-xs text-gray-500 my-4">
+            Today
+        </div>
+
+        <!-- Incoming Message -->
+        <div class="flex justify-start">
+            <div class="max-w-xs message-in px-4 py-2">
+                Hey there! How's your day going?
+                <div class="text-right text-xs text-gray-500 mt-1">10:30 AM</div>
+            </div>
+        </div>
+
+        <!-- Outgoing Message -->
+        <div class="flex justify-end">
+            <div class="max-w-xs message-out px-4 py-2">
+                Pretty good! Just finished my classes.
+                <div class="text-right text-xs text-white text-opacity-80 mt-1">10:32 AM</div>
+            </div>
+        </div>
+
+        <!-- Incoming Message -->
+        <div class="flex justify-start">
+            <div class="max-w-xs message-in px-4 py-2">
+            What are you studying at Shoolini?
+            <div class="text-right text-xs text-gray-500 mt-1">10:33 AM</div>
+            </div>
+        </div>
+
+        <!-- Outgoing Message -->
+        <div class="flex justify-end">
+            <div class="max-w-xs message-out px-4 py-2">
+            Computer Science! You?
+            <div class="text-right text-xs text-white text-opacity-80 mt-1">10:34 AM</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Message Input -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white py-3 px-4 max-w-md mx-auto border-t border-gray-200">
+        <div class="flex items-center">
+            <button class="text-gray-500 mr-2">
+                <i class="far fa-smile text-xl"></i>
+            </button>
+            <input type="text" 
+                   placeholder="Type a message..." 
+                   class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500">
+            <button class="ml-2 w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white flex items-center justify-center">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Simulate typing indicator
+        setInterval(() => {
+            const typing = document.querySelector('.typing-indicator');
+            const statusText = document.getElementById('statusText');
+            
+            if (Math.random() > 0.7) {
+                typing.classList.remove('hidden');
+                statusText.classList.add('hidden');
+            } else {
+                typing.classList.add('hidden');
+                statusText.classList.remove('hidden');
+            }
+        }, 3000);
+        
+        // Auto-scroll to bottom of chat
+        const chatMessages = document.getElementById('chatMessages');
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    </script>
+</body>
+</html>
