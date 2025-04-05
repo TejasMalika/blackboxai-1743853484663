@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup | Shoolini Cupid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        .photo-upload {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23D1D5DB' stroke-width='4' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-md mx-auto bg-white min-h-screen">
+        <!-- Progress Bar -->
+        <div class="px-6 pt-6 pb-2">
+            <div class="flex justify-between mb-1">
+                <span class="text-sm font-medium text-pink-500">Step <span id="currentStep">1</span> of 4</span>
+                <span class="text-sm font-medium text-gray-500">25%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full" style="width: 25%"></div>
+            </div>
+        </div>
+
+        <!-- Step 1: Upload Photos -->
+        <div class="step active" id="step1">
+            <div class="px-6 py-4">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Add Your Photos</h2>
+                <p class="text-gray-600 mb-6">Upload up to 6 photos to show your best self</p>
+                
+                <div class="grid grid-cols-3 gap-3 mb-6">
+                    <div class="photo-upload h-32 rounded-xl flex items-center justify-center cursor-pointer bg-gray-100 overflow-hidden">
+                        <i class="fas fa-plus text-gray-400 text-2xl"></i>
+                        <input type="file" class="hidden" accept="image/*">
+                    </div>
+                    <div class="photo-upload h-32 rounded-xl flex items-center justify-center cursor-pointer bg-gray-100">
+                        <i class="fas fa-plus text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="photo-upload h-32 rounded-xl flex items-center justify-center cursor-pointer bg-gray-100">
+                        <i class="fas fa-plus text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="photo-upload h-32 rounded-xl flex items-center justify-center cursor-pointer bg-gray-100">
+                        <i class="fas fa-plus text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="photo-upload h-32 rounded-xl flex items-center justify-center cursor-pointer bg-gray-100">
+                        <i class="fas fa-plus text-gray-400 text-2xl"></i>
+                    </div>
+                    <div class="photo-upload h-32 rounded-xl flex items-center justify-center cursor-pointer bg-gray-100">
+                        <i class="fas fa-plus text-gray-400 text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Basic Info -->
+        <div class="step" id="step2">
+            <div class="px-6 py-4">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Basic Information</h2>
+                <p class="text-gray-600 mb-6">Tell us about yourself</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition" value="John Doe">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nickname (Optional)</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition" placeholder="What your friends call you">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                        <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="non-binary">Non-binary</option>
+                            <option value="other">Prefer not to say</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Looking For</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition">
+                            <option value="male">Men</option>
+                            <option value="female">Women</option>
+                            <option value="everyone">Everyone</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="px-6 py-4 border-t border-gray-200 mt-auto">
+            <div class="flex justify-between">
+                <button id="prevBtn" class="px-6 py-2 text-gray-600 font-medium rounded-lg invisible">Back</button>
+                <button id="nextBtn" class="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium rounded-lg hover:opacity-90 transition">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 2; // Will be 4 when all steps are implemented
+        
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                document.getElementById('currentStep').textContent = currentStep;
+                document.querySelector('.bg-gradient-to-r').style.width = `${(currentStep/totalSteps)*100}%`;
+                
+                if (currentStep > 1) {
+                    document.getElementById('prevBtn').classList.remove('invisible');
+                }
+                
+                if (currentStep === totalSteps) {
+                    document.getElementById('nextBtn').textContent = 'Complete Profile';
+                }
+            } else {
+                // Submit form logic here
+                window.location.href = 'swipe.html';
+            }
+        });
+        
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                document.getElementById('currentStep').textContent = currentStep;
+                document.querySelector('.bg-gradient-to-r').style.width = `${(currentStep/totalSteps)*100}%`;
+                
+                if (currentStep === 1) {
+                    document.getElementById('prevBtn').classList.add('invisible');
+                }
+                
+                document.getElementById('nextBtn').textContent = 'Continue';
+            }
+        });
+    </script>
+</body>
+</html>
