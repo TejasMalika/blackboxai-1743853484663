@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Shoolini Cupid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Admin Login (Initial View) -->
+    <div id="loginView" class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center">
+                    <i class="fas fa-lock text-3xl text-white"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">Admin Login</h1>
+                <p class="text-gray-600">Enter your admin credentials</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <input type="text" id="adminUsername" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="adminPassword" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition">
+                </div>
+                
+                <button id="adminLoginBtn" class="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-lg font-medium hover:opacity-90 transition flex items-center justify-center">
+                    <span>Login</span>
+                    <i class="fas fa-spinner fa-spin ml-2 hidden"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (Hidden Initially) -->
+    <div id="adminDashboard" class="hidden">
+        <!-- Header -->
+        <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center sticky top-0 z-10">
+            <h1 class="text-xl font-bold text-pink-500">Admin Dashboard</h1>
+            <button id="adminLogoutBtn" class="text-gray-500 hover:text-pink-500">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="bg-white shadow-sm px-6 py-3 flex overflow-x-auto space-x-6 hide-scrollbar">
+            <button class="admin-tab active whitespace-nowrap px-4 py-1 text-pink-500 border-b-2 border-pink-500 font-medium">
+                Users
+            </button>
+            <button class="admin-tab whitespace-nowrap px-4 py-1 text-gray-500 font-medium">
+                Reports
+            </button>
+            <button class="admin-tab whitespace-nowrap px-4 py-1 text-gray-500 font-medium">
+                Analytics
+            </button>
+            <button class="admin-tab whitespace-nowrap px-4 py-1 text-gray-500 font-medium">
+                Settings
+            </button>
+        </nav>
+
+        <!-- Users Table -->
+        <div class="p-4">
+            <div class="bg-white rounded-xl shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 overflow-hidden">
+                                            <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" class="h-full w-full object-cover">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Priya Sharma</div>
+                                            <div class="text-sm text-gray-500">22, Female</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">priya@shooliniuniversity.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-pink-500 hover:text-pink-700 mr-3">View</button>
+                                    <button class="text-red-500 hover:text-red-700">Ban</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 overflow-hidden">
+                                            <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" class="h-full w-full object-cover">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Rahul Verma</div>
+                                            <div class="text-sm text-gray-500">24, Male</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">rahul@shooliniuniversity.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-pink-500 hover:text-pink-700 mr-3">View</button>
+                                    <button class="text-red-500 hover:text-red-700">Ban</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 overflow-hidden">
+                                            <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" class="h-full w-full object-cover">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Ananya Patel</div>
+                                            <div class="text-sm text-gray-500">21, Female</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">ananya@shooliniuniversity.com</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Banned</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-pink-500 hover:text-pink-700 mr-3">View</button>
+                                    <button class="text-green-500 hover:text-green-700">Unban</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin login functionality
+        document.getElementById('adminLoginBtn').addEventListener('click', function() {
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+            const spinner = this.querySelector('i');
+            
+            // Simple validation (in real app, this would be server-side)
+            if (username === 'admin' && password === 'shoolini2023') {
+                spinner.classList.remove('hidden');
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    document.getElementById('loginView').classList.add('hidden');
+                    document.getElementById('adminDashboard').classList.remove('hidden');
+                }, 1000);
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+        
+        // Admin logout functionality
+        document.getElementById('adminLogoutBtn').addEventListener('click', function() {
+            document.getElementById('loginView').classList.remove('hidden');
+            document.getElementById('adminDashboard').classList.add('hidden');
+            document.getElementById('adminUsername').value = '';
+            document.getElementById('adminPassword').value = '';
+        });
+        
+        // Tab switching
+        document.querySelectorAll('.admin-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.admin-tab').forEach(t => {
+                    t.classList.remove('active', 'text-pink-500', 'border-b-2', 'border-pink-500');
+                    t.classList.add('text-gray-500');
+                });
+                this.classList.add('active', 'text-pink-500', 'border-b-2', 'border-pink-500');
+                this.classList.remove('text-gray-500');
+            });
+        });
+    </script>
+
+    <style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body>
+</html>
