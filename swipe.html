@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swipe | Shoolini Cupid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <style>
+        .profile-card {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform-origin: center bottom;
+        }
+        .swipe-right {
+            transform: translateX(200%) rotate(30deg);
+            opacity: 0;
+        }
+        .swipe-left {
+            transform: translateX(-200%) rotate(-30deg);
+            opacity: 0;
+        }
+        .swipe-up {
+            transform: translateY(-100%) scale(0.8);
+            opacity: 0;
+        }
+        .like-btn:hover {
+            box-shadow: 0 0 0 8px rgba(236, 72, 153, 0.2);
+        }
+        .dislike-btn:hover {
+            box-shadow: 0 0 0 8px rgba(156, 163, 175, 0.2);
+        }
+        .superlike-btn:hover {
+            box-shadow: 0 0 0 8px rgba(96, 165, 250, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center">
+        <a href="#" class="text-pink-500">
+            <i class="fas fa-user text-xl"></i>
+        </a>
+        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 flex items-center justify-center">
+            <i class="fas fa-heart text-white text-xl"></i>
+        </div>
+        <a href="#" class="text-gray-500">
+            <i class="fas fa-comment-dots text-xl"></i>
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative max-w-md mx-auto h-[calc(100vh-180px)] overflow-hidden">
+        <!-- Profile Card -->
+        <div class="profile-card absolute inset-0 m-4 bg-white rounded-2xl shadow-lg overflow-hidden" id="profileCard">
+            <div class="relative h-full">
+                <!-- Profile Image -->
+                <div class="h-3/4 bg-gray-200 relative overflow-hidden">
+                    <img src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg" 
+                         alt="Profile" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4">
+                        <div class="bg-white bg-opacity-80 backdrop-blur-sm rounded-full px-3 py-1 flex items-center">
+                            <i class="fas fa-map-marker-alt text-pink-500 mr-1"></i>
+                            <span class="text-sm font-medium">2 km away</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Info -->
+                <div class="p-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-xl font-bold">Priya, 22</h2>
+                            <p class="text-gray-600">Computer Science</p>
+                        </div>
+                        <div class="bg-pink-100 text-pink-500 px-2 py-1 rounded-full text-xs font-medium">
+                            87% Match
+                        </div>
+                    </div>
+                    
+                    <div class="mt-2 flex flex-wrap gap-1">
+                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Photography</span>
+                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Music</span>
+                        <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">Travel</span>
+                    </div>
+                    
+                    <p class="mt-3 text-sm text-gray-700">
+                        "Love hiking and coding. Looking for someone to explore the mountains with!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Action Buttons -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white py-6 px-8 flex justify-center gap-6 max-w-md mx-auto">
+        <button class="dislike-btn w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 transition">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+        <button class="superlike-btn w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 transition">
+            <i class="fas fa-star text-2xl"></i>
+        </button>
+        <button class="like-btn w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center text-pink-500 transition">
+            <i class="fas fa-heart text-2xl"></i>
+        </button>
+    </div>
+
+    <script>
+        const profileCard = document.getElementById('profileCard');
+        const hammer = new Hammer(profileCard);
+        
+        // Enable swipe recognition
+        hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+        
+        // Handle swipe events
+        hammer.on('swipe', (event) => {
+            switch(event.direction) {
+                case Hammer.DIRECTION_LEFT:
+                    profileCard.classList.add('swipe-left');
+                    break;
+                case Hammer.DIRECTION_RIGHT:
+                    profileCard.classList.add('swipe-right');
+                    break;
+                case Hammer.DIRECTION_UP:
+                    profileCard.classList.add('swipe-up');
+                    break;
+            }
+            
+            // Load new profile after animation
+            setTimeout(() => {
+                profileCard.classList.remove('swipe-left', 'swipe-right', 'swipe-up');
+                // In a real app, we would fetch new profile data here
+            }, 300);
+        });
+        
+        // Button click handlers
+        document.querySelector('.dislike-btn').addEventListener('click', () => {
+            profileCard.classList.add('swipe-left');
+            setTimeout(() => {
+                profileCard.classList.remove('swipe-left');
+            }, 300);
+        });
+        
+        document.querySelector('.like-btn').addEventListener('click', () => {
+            profileCard.classList.add('swipe-right');
+            setTimeout(() => {
+                profileCard.classList.remove('swipe-right');
+            }, 300);
+        });
+        
+        document.querySelector('.superlike-btn').addEventListener('click', () => {
+            profileCard.classList.add('swipe-up');
+            setTimeout(() => {
+                profileCard.classList.remove('swipe-up');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
